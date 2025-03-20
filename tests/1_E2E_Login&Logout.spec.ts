@@ -18,7 +18,7 @@ test.describe('E2E_Login_Logout', () => {
         const Text_Logout = await page.locator("//b[text()='You logged out of the secure area!']").textContent();
         // console.log(Text_Logout);
         expect(Text_Logout==='You logged out of the secure area!').toBeTruthy(); 
-        // ตรวจสอบการมีอยู่ของ Text logout success ที่มีข้อความว่า You logged into a secure area!
+        // ตรวจสอบการมีอยู่ของ Text logout success ที่มีข้อความว่า You logged out of the secure area!
 
         
     });
