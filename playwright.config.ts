@@ -29,8 +29,8 @@ export default defineConfig({
     // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
-    video: 'on',
+    trace: 'off',
+    video: 'off',
     
   },
 
@@ -45,7 +45,7 @@ export default defineConfig({
         viewport: null,
         launchOptions: {
           args: ['--start-maximized'],
-          slowMo: 1000
+          slowMo: 0
         },
       },
     },
