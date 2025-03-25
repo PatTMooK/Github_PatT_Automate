@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 test.describe('Website QADEMO upload file', () => {
-    // Run test project npx playwright test "QADEMO_Website.spec.ts" 
+    // Run test project npx playwright test "5_Website_DemoQA_uploadfile.spec.ts" 
     test('upload file', async ({ page }) => {
         await page.goto('https://demoqa.com/upload-download'); 
         // ไปยังเว็บที่กำหนด
