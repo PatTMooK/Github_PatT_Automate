@@ -38,7 +38,7 @@ test('Test API Get & Verify Body', async ({ request }) => {
     // ตรวจสอบ ข้างใน data มี id = 2
     expect.soft (ResponseBody.data.first_name).toContain('Janet');
     // ตรวจสอบ ข้างใน data มี first_name = Janet
-    // แสดงค่า ResponseBody ใน log console first_name
+    
 });
     
 })
