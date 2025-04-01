@@ -45,7 +45,7 @@ export default defineConfig({
         viewport: null,
         launchOptions: {
           args: ['--start-maximized'],
-          slowMo: 0
+          slowMo: 1000
         },
       },
     },
