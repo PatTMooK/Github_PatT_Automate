@@ -106,59 +106,28 @@ test.describe('Website QADEMO Checkbox', () => {
         // ไปยังเว็บทดสอบการ checkbox แบบไม่รอโหลดนานเกินไป
         await page.locator("//button[contains(@class,'rct-option-expand-all')]").click();
         // กดปุ่ม + เพื่อ expand ทั้งหมด
-        await expect.soft(page.locator("//label[@for='tree-node-desktop']")).toBeVisible();
-        // ตรวจสอบว่าพบ element desktop'
-        await expect.soft(page.locator("//label[@for='tree-node-notes']")).toBeVisible();
-        // ตรวจสอบว่าพบ element note'
-        await expect.soft(page.locator("//label[@for='tree-node-commands']")).toBeVisible();
-        // ตรวจสอบว่าพบ element commands'
-        await expect.soft(page.locator("//label[@for='tree-node-documents']")).toBeVisible();
-        // ตรวจสอบว่าพบ element documents'
-        await expect.soft(page.locator("//label[@for='tree-node-workspace']")).toBeVisible();
-        // ตรวจสอบว่าพบ element workspace'
-        await expect.soft(page.locator("//label[@for='tree-node-react']")).toBeVisible();
-        // ตรวจสอบว่าพบ element react'
-        await expect.soft(page.locator("//label[@for='tree-node-veu']")).toBeVisible();
-        // ตรวจสอบว่าพบ element veu'
-        await expect.soft(page.locator("//label[@for='tree-node-office']")).toBeVisible();
-        // ตรวจสอบว่าพบ element office'
-        await expect.soft(page.locator("//label[@for='tree-node-public']")).toBeVisible();
-        // ตรวจสอบว่าพบ element public'
-        await expect.soft(page.locator("//label[@for='tree-node-private']")).toBeVisible();
-        // ตรวจสอบว่าพบ element private'
-        await expect.soft(page.locator("//label[@for='tree-node-classified']")).toBeVisible();
-        // ตรวจสอบว่าพบ element classified'
-        await expect.soft(page.locator("//label[@for='tree-node-general']")).toBeVisible();
-        // ตรวจสอบว่าพบ element general'
-        await expect.soft(page.locator("//label[@for='tree-node-downloads']")).toBeVisible();
-        // ตรวจสอบว่าพบ element downloads'
-        await expect.soft(page.locator("//label[@for='tree-node-wordFile']")).toBeVisible();
-        // ตรวจสอบว่าพบ element wordFile'
-        await expect.soft(page.locator("//label[@for='tree-node-excelFile']")).toBeVisible();
-        // ตรวจสอบว่าพบ element excelFile'
+        const elements = [
+            'home','desktop', 'notes', 'commands', 'documents', 'workspace', 'react', 'veu',
+            'office', 'public', 'private', 'classified', 'general', 'downloads',
+            'wordFile', 'excelFile'
+        ];
+        // สร้างตัวแปร elements เพื่อเก็บค่า Label ที่ต้องการเช็ค
+        for (const element of elements) {
+            await expect.soft(page.locator(`//label[@for='tree-node-${element}']`)).toBeVisible();
+            // console.log(element);
+        }
+        // สร้าง loop element โดยให้นำค่าใน elements มาใส่ใน locater เพื่อตัวสอบการปรากฏ .toBeVisible()
         await page.locator("//label[@for='tree-node-home']/span[@class='rct-checkbox']").click();
         // กดcheckbox ที่ home เพื่อเลือกทั้งหมด
        
         await page.locator("//button[contains(@class,'rct-option-collapse-all')]").click();
         // กดปุ่ม - เพื่อ collapse ทั้งหมด
         
-        await expect.soft(page.locator("//div[@id='result']")).toContainText("home");
-        await expect.soft(page.locator("//div[@id='result']")).toContainText("desktop");
-        await expect.soft(page.locator("//div[@id='result']")).toContainText("notes");
-        await expect.soft(page.locator("//div[@id='result']")).toContainText("commands");
-        await expect.soft(page.locator("//div[@id='result']")).toContainText("documents");
-        await expect.soft(page.locator("//div[@id='result']")).toContainText("workspace");
-        await expect.soft(page.locator("//div[@id='result']")).toContainText("react");
-        await expect.soft(page.locator("//div[@id='result']")).toContainText("veu");
-        await expect.soft(page.locator("//div[@id='result']")).toContainText("office");
-        await expect.soft(page.locator("//div[@id='result']")).toContainText("public");
-        await expect.soft(page.locator("//div[@id='result']")).toContainText("private");
-        await expect.soft(page.locator("//div[@id='result']")).toContainText("classified");
-        await expect.soft(page.locator("//div[@id='result']")).toContainText("general");
-        await expect.soft(page.locator("//div[@id='result']")).toContainText("downloads");
-        await expect.soft(page.locator("//div[@id='result']")).toContainText("wordFile");
-        await expect.soft(page.locator("//div[@id='result']")).toContainText("excelFile");
-        // ตรวจสอบข้อความทั้งหมดใน tab result
+        for (const el of elements) {
+            await expect.soft(page.locator("//div[@id='result']")).toContainText(el);
+            // console.log(el);
+        }
+        // สร้าง loop el โดยให้นำค่าใน elements ตรวจสอบข้อความทั้งหมดใน Locator
         
     });
     
