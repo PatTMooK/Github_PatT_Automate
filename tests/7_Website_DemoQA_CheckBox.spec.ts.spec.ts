@@ -158,7 +158,7 @@ test.describe('Website QADEMO Checkbox', () => {
         await expect.soft(page.locator("//div[@id='result']")).toContainText("downloads");
         await expect.soft(page.locator("//div[@id='result']")).toContainText("wordFile");
         await expect.soft(page.locator("//div[@id='result']")).toContainText("excelFile");
-        // ตรวจสอบข้อความทั้งหมดใน teb result
+        // ตรวจสอบข้อความทั้งหมดใน tab result
         
     });
     
