@@ -63,13 +63,11 @@ test.describe('Website QADEMO Checkbox', () => {
         // ทำการกดปุ่มที่ต้องการเพื่อexpand  node downloads
         await page.locator("//label[@for='tree-node-wordFile']/span[@class='rct-checkbox']").click();
         // ทำการกดปุ่ม checkbox เป็นคำว่า wordFile.doc
-
-        await expect.soft(page.locator("//div[@id='result']")).toContainText("notes");
-        // ตรวจสอบข้อความการเลือก ที่แถบ Result ต้องมีคำว่า notes
-        await expect.soft(page.locator("//div[@id='result']")).toContainText("veu");
-        // ตรวจสอบข้อความการเลือก ที่แถบ Result ต้องมีคำว่า veu
-        await expect.soft(page.locator("//div[@id='result']")).toContainText("wordFile");
-        // ตรวจสอบข้อความการเลือก ที่แถบ Result ต้องมีคำว่า wordFile
+        const elements=['notes','veu','wordFile'];
+        for(const element of elements){
+            await expect.soft(page.locator("//div[@id='result']")).toContainText(element);
+        }
+        // ตรวจสอบข้อความการเลือก ที่แถบ Result ต้องมีคำว่า veu,notes,wordFile
         // await page.pause();
 
         
@@ -78,22 +76,25 @@ test.describe('Website QADEMO Checkbox', () => {
     test('TC04_expand/collapse', async ({ page }) => {
         // npx playwright test "7_Website_DemoQA_CheckBox.spec.ts.spec.ts" -g "TC04_expand/collapse"
         // จุดประสงค์: ทดสอบว่า expand/collapse ทำงานถูกต้อง
-        // ยังไม่ได้ย่อ code
 
         await page.goto("https://demoqa.com/checkbox", { waitUntil: 'domcontentloaded' });
         // ไปยังเว็บทดสอบการ checkbox แบบไม่รอโหลดนานเกินไป
         await page.locator("//div[@id='tree-node']/ol/li/span/button[@type='button']").click();
         // ทำการกดปุ่มที่ต้องการเพื่อดูไฟล์ด้านใน
-        await expect.soft(page.locator("//label[@for='tree-node-workspace']")).not.toBeVisible();
-        // ตรวจสอบว่าไม่พบ element workspace'
-        await expect.soft(page.locator("//label[@for='tree-node-office']")).not.toBeVisible();
-        // ตรวจสอบว่าไม่พบ element office'
+        const elements = ['workspace','office'];
+        
+        for (const element of elements) {
+            await expect.soft(page.locator(`//label[@for='tree-node-${element}']`)).not.toBeVisible();
+            // console.log(element);
+        }
+        // ตรวจสอบว่าไม่พบ element workspace,office'
         await page.locator("//label[@for='tree-node-documents']/preceding-sibling::button[@type='button']").click();
         // ทำการกดปุ่มที่ต้องการเพื่อexpand  node documents
-        await expect.soft(page.locator("//label[@for='tree-node-workspace']")).toBeVisible();
-        // ตรวจสอบว่าพบ element workspace'
-        await expect.soft(page.locator("//label[@for='tree-node-office']")).toBeVisible();
-        // ตรวจสอบว่าพบ element office'
+        for (const element of elements) {
+            await expect.soft(page.locator(`//label[@for='tree-node-${element}']`)).toBeVisible();
+            // console.log(element);
+        }
+        // ตรวจสอบว่าพบ element workspace,office'
         // await page.pause();
         
     });
