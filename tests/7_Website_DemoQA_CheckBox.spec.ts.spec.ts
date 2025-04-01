@@ -74,6 +74,93 @@ test.describe('Website QADEMO Checkbox', () => {
 
         
     });
+
+    test('TC04_expand/collapse', async ({ page }) => {
+        // npx playwright test "7_Website_DemoQA_CheckBox.spec.ts.spec.ts" -g "TC04_expand/collapse"
+        // จุดประสงค์: ทดสอบว่า expand/collapse ทำงานถูกต้อง
+        // ยังไม่ได้ย่อ code
+
+        await page.goto("https://demoqa.com/checkbox", { waitUntil: 'domcontentloaded' });
+        // ไปยังเว็บทดสอบการ checkbox แบบไม่รอโหลดนานเกินไป
+        await page.locator("//div[@id='tree-node']/ol/li/span/button[@type='button']").click();
+        // ทำการกดปุ่มที่ต้องการเพื่อดูไฟล์ด้านใน
+        await expect.soft(page.locator("//label[@for='tree-node-workspace']")).not.toBeVisible();
+        // ตรวจสอบว่าไม่พบ element workspace'
+        await expect.soft(page.locator("//label[@for='tree-node-office']")).not.toBeVisible();
+        // ตรวจสอบว่าไม่พบ element office'
+        await page.locator("//label[@for='tree-node-documents']/preceding-sibling::button[@type='button']").click();
+        // ทำการกดปุ่มที่ต้องการเพื่อexpand  node documents
+        await expect.soft(page.locator("//label[@for='tree-node-workspace']")).toBeVisible();
+        // ตรวจสอบว่าพบ element workspace'
+        await expect.soft(page.locator("//label[@for='tree-node-office']")).toBeVisible();
+        // ตรวจสอบว่าพบ element office'
+        // await page.pause();
+        
+    });
+
+    test('TC05_Select_All', async ({ page }) => {
+        // npx playwright test "7_Website_DemoQA_CheckBox.spec.ts.spec.ts" -g "TC05_Select_All"
+        // จุดประสงค์: ตรวจสอบ Select All ถ้าหน้ามีปุ่ม + / - ด้านบน
+
+        await page.goto("https://demoqa.com/checkbox", { waitUntil: 'domcontentloaded' });
+        // ไปยังเว็บทดสอบการ checkbox แบบไม่รอโหลดนานเกินไป
+        await page.locator("//button[contains(@class,'rct-option-expand-all')]").click();
+        // กดปุ่ม + เพื่อ expand ทั้งหมด
+        await expect.soft(page.locator("//label[@for='tree-node-desktop']")).toBeVisible();
+        // ตรวจสอบว่าพบ element desktop'
+        await expect.soft(page.locator("//label[@for='tree-node-notes']")).toBeVisible();
+        // ตรวจสอบว่าพบ element note'
+        await expect.soft(page.locator("//label[@for='tree-node-commands']")).toBeVisible();
+        // ตรวจสอบว่าพบ element commands'
+        await expect.soft(page.locator("//label[@for='tree-node-documents']")).toBeVisible();
+        // ตรวจสอบว่าพบ element documents'
+        await expect.soft(page.locator("//label[@for='tree-node-workspace']")).toBeVisible();
+        // ตรวจสอบว่าพบ element workspace'
+        await expect.soft(page.locator("//label[@for='tree-node-react']")).toBeVisible();
+        // ตรวจสอบว่าพบ element react'
+        await expect.soft(page.locator("//label[@for='tree-node-veu']")).toBeVisible();
+        // ตรวจสอบว่าพบ element veu'
+        await expect.soft(page.locator("//label[@for='tree-node-office']")).toBeVisible();
+        // ตรวจสอบว่าพบ element office'
+        await expect.soft(page.locator("//label[@for='tree-node-public']")).toBeVisible();
+        // ตรวจสอบว่าพบ element public'
+        await expect.soft(page.locator("//label[@for='tree-node-private']")).toBeVisible();
+        // ตรวจสอบว่าพบ element private'
+        await expect.soft(page.locator("//label[@for='tree-node-classified']")).toBeVisible();
+        // ตรวจสอบว่าพบ element classified'
+        await expect.soft(page.locator("//label[@for='tree-node-general']")).toBeVisible();
+        // ตรวจสอบว่าพบ element general'
+        await expect.soft(page.locator("//label[@for='tree-node-downloads']")).toBeVisible();
+        // ตรวจสอบว่าพบ element downloads'
+        await expect.soft(page.locator("//label[@for='tree-node-wordFile']")).toBeVisible();
+        // ตรวจสอบว่าพบ element wordFile'
+        await expect.soft(page.locator("//label[@for='tree-node-excelFile']")).toBeVisible();
+        // ตรวจสอบว่าพบ element excelFile'
+        await page.locator("//label[@for='tree-node-home']/span[@class='rct-checkbox']").click();
+        // กดcheckbox ที่ home เพื่อเลือกทั้งหมด
+       
+        await page.locator("//button[contains(@class,'rct-option-collapse-all')]").click();
+        // กดปุ่ม - เพื่อ collapse ทั้งหมด
+        
+        await expect.soft(page.locator("//div[@id='result']")).toContainText("home");
+        await expect.soft(page.locator("//div[@id='result']")).toContainText("desktop");
+        await expect.soft(page.locator("//div[@id='result']")).toContainText("notes");
+        await expect.soft(page.locator("//div[@id='result']")).toContainText("commands");
+        await expect.soft(page.locator("//div[@id='result']")).toContainText("documents");
+        await expect.soft(page.locator("//div[@id='result']")).toContainText("workspace");
+        await expect.soft(page.locator("//div[@id='result']")).toContainText("react");
+        await expect.soft(page.locator("//div[@id='result']")).toContainText("veu");
+        await expect.soft(page.locator("//div[@id='result']")).toContainText("office");
+        await expect.soft(page.locator("//div[@id='result']")).toContainText("public");
+        await expect.soft(page.locator("//div[@id='result']")).toContainText("private");
+        await expect.soft(page.locator("//div[@id='result']")).toContainText("classified");
+        await expect.soft(page.locator("//div[@id='result']")).toContainText("general");
+        await expect.soft(page.locator("//div[@id='result']")).toContainText("downloads");
+        await expect.soft(page.locator("//div[@id='result']")).toContainText("wordFile");
+        await expect.soft(page.locator("//div[@id='result']")).toContainText("excelFile");
+        // ตรวจสอบข้อความทั้งหมดใน teb result
+        
+    });
     
     
     
