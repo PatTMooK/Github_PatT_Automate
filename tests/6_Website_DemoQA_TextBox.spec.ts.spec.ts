@@ -15,7 +15,7 @@ test.describe('Website QADEMO Textbox', () => {
         const CurrentAddress = 'Bang Sue,Bangkok,10800,Thailand';
         const PermanentAddress = 'Huai Krachao,Kanchanaburi,71170,Thailand';
         //ข้อมูล input
-        const expectedResults = [
+        const ExpectedResults = [
             `Name:${Name}`,
             `Email:${Email}`,
             `Current Address :${CurrentAddress}`,
@@ -31,16 +31,16 @@ test.describe('Website QADEMO Textbox', () => {
         await page.locator("//button[@id='submit']").click();
         // กดปุ่ม Submit
         
-        const outputBox = page.locator("//div[@id='output']");
+        const OutputBox = page.locator("//div[@id='output']");
         // กำหนดให้ outputBox เก็บค่า Element output
-        await expect.soft(outputBox).toBeVisible();
+        await expect.soft(OutputBox).toBeVisible();
         // ครวจสอบว่า Element output แสดงขึ้นมา
 
-        for (const expectedText of expectedResults) {
-            await expect.soft(outputBox).toContainText(expectedText);
+        for (const ExpectedText of ExpectedResults) {
+            await expect.soft(OutputBox).toContainText(ExpectedText);
         }
         // ตรวจสอบผลลัพธ์แต่ละบรรทัด
-        // await console.log(expectedResults);
+        // await console.log(ExpectedResults);
         
         
         
