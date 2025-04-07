@@ -12,21 +12,21 @@ test.describe('Website QADEMO Textbox', () => {
         
         const Name = ['Padthadon Kimlaung']; 
         const Email = ['Padthadon@gmail.com'];
-        const currentAddress = 'Bang Sue,Bangkok,10800,Thailand';
-        const permanentAddress = 'Huai Krachao,Kanchanaburi,71170,Thailand';
+        const CurrentAddress = 'Bang Sue,Bangkok,10800,Thailand';
+        const PermanentAddress = 'Huai Krachao,Kanchanaburi,71170,Thailand';
         //ข้อมูล input
         const expectedResults = [
             `Name:${Name}`,
             `Email:${Email}`,
-            `Current Address :${currentAddress}`,
-            `Permananet Address :${permanentAddress}`
+            `Current Address :${CurrentAddress}`,
+            `Permananet Address :${PermanentAddress}`
             ];
         // ข้อมูลที่คาดหวังหลัง Submit
 
         await page.locator("//input[@placeholder='Full Name']").fill(`${Name}`);
         await page.locator("//input[@placeholder='name@example.com']").fill(`${Email}`);
-        await page.locator("//textarea[@placeholder='Current Address']").fill(`${currentAddress}`);
-        await page.locator("//textarea[@id='permanentAddress']").fill(`${permanentAddress}`);
+        await page.locator("//textarea[@placeholder='Current Address']").fill(`${CurrentAddress}`);
+        await page.locator("//textarea[@id='permanentAddress']").fill(`${PermanentAddress}`);
         // กรอกข้อมูลในฟอร์ม
         await page.locator("//button[@id='submit']").click();
         // กดปุ่ม Submit
