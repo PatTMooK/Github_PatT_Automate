@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
 test.describe('Website QADEMO Radio', () => {
-    // npx playwright test "9_Website_DemoQA_Radio.spec.ts.spec.ts" -g "Website QADEMO Radio"
+    // npx playwright test "4_Website_DemoQA_Radio.spec.ts.spec.ts" -g "Website QADEMO Radio"
 
     test('TC01_checked_false', async ({ page }) => {
-        // npx playwright test "9_Website_DemoQA_Radio.spec.ts.spec.ts" -g "TC01_checked_false"
+        // npx playwright test "4_Website_DemoQA_Radio.spec.ts.spec.ts" -g "TC01_checked_false"
         // เมื่อเปิดหน้าเว็บครั้งแรก ให้ตรวจสอบว่าไม่มี radio button ตัวใดถูกเลือก
         // สิ่งที่ควรตรวจสอบ: Radio button ทั้ง 3 ตัว (Yes, Impressive, No) มี checked เป็น false
         await page.goto('https://demoqa.com/radio-button', { waitUntil: 'domcontentloaded' });
@@ -20,7 +20,7 @@ test.describe('Website QADEMO Radio', () => {
     })
     
     test('TC02_checked_Verify_Text', async ({ page }) => {
-        // npx playwright test "9_Website_DemoQA_Radio.spec.ts.spec.ts" -g "TC02_checked_Verify_Text"
+        // npx playwright test "4_Website_DemoQA_Radio.spec.ts.spec.ts" -g "TC02_checked_Verify_Text"
         // เลือก radio button และตรวจสอบข้อความ
         // เลือก radio button ตัว Impressive แล้วตรวจสอบว่ามีข้อความแสดงว่า You have selected Impressive 
         await page.goto('https://demoqa.com/radio-button', { waitUntil: 'domcontentloaded' });
@@ -34,7 +34,7 @@ test.describe('Website QADEMO Radio', () => {
     })
 
     test('TC03_checked_change', async ({ page }) => {
-        // npx playwright test "9_Website_DemoQA_Radio.spec.ts.spec.ts" -g "TC03_checked_change"
+        // npx playwright test "4_Website_DemoQA_Radio.spec.ts.spec.ts" -g "TC03_checked_change"
         // เลือก radio button และตรวจสอบข้อความ
         // เลือก radio button ตัว Impressive แล้วตรวจสอบว่ามีข้อความแสดงว่า You have selected Impressive 
         await page.goto('https://demoqa.com/radio-button', { waitUntil: 'domcontentloaded' });
@@ -53,7 +53,7 @@ test.describe('Website QADEMO Radio', () => {
     })
 
     test('TC04_Loop_checked_Verifytext', async ({ page }) => {
-        // npx playwright test "9_Website_DemoQA_Radio.spec.ts.spec.ts" -g "TC04_Loop_checked_Verifytext"
+        // npx playwright test "4_Website_DemoQA_Radio.spec.ts.spec.ts" -g "TC04_Loop_checked_Verifytext"
         // เลือก radio button และตรวจสอบข้อความ
         // เลือก radio button ตัว Impressive แล้วตรวจสอบว่ามีข้อความแสดงว่า You have selected Impressive 
         await page.goto('https://demoqa.com/radio-button', { waitUntil: 'domcontentloaded' });
