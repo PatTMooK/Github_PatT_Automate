@@ -2,10 +2,10 @@ import { test, expect } from '@playwright/test';
 import { count } from 'console';
 
 test.describe('Website QADEMO Textbox', () => {
-    // npx playwright test "6_Website_DemoQA_TextBox.spec.ts.spec.ts"
+    // npx playwright test "3_Website_DemoQA_TextBox.spec.ts.spec.ts"
 
     test('TC01_Fill&Submit', async ({ page }) => {
-        // npx playwright test "6_Website_DemoQA_TextBox.spec.ts.spec.ts" -g "TC01_Fill&Submit$"  
+        // npx playwright test "3_Website_DemoQA_TextBox.spec.ts.spec.ts" -g "TC01_Fill&Submit$"  
 
         await page.goto("https://demoqa.com/text-box", { waitUntil: 'domcontentloaded' }); 
         // เปิดหน้าเว็บ
