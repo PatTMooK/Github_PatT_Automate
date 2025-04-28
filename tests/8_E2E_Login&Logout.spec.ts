@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 test.describe('E2E_Login_Logout', () => {
-    // npx playwright test "1_E2E_Login&logout.spec.ts"
+    // npx playwright test "8_E2E_Login&logout.spec.ts"
     // คำอธิบาย E2E_Login_Logout เป็นการแสดงการทำงานเคส login และ logout แบบ positive case โดย script ที่ใช้จะมีการใช้ 
     // page.locator ในการกำหนด element ต่างที่ใช้ทดสอบ
     // { waitUntil: 'domcontentloaded' } เพื่อจะให้หน้าเว็บไม่รอโหลดนานเกินไปจนเกิดเคส timeout
