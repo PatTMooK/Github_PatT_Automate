@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { json } from 'stream/consumers';
-// npx playwright test "8_Website_Reqres_Get.spec.ts.spec.ts"
+// npx playwright test "1_Website_Reqres_Get.spec.ts.spec.ts"
 test.describe('API TEST', () => {
 
     
