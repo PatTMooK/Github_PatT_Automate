@@ -1,11 +1,11 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Website QADEMO Checkbox', () => {
-    // npx playwright test "7_Website_DemoQA_CheckBox.spec.ts.spec.ts" 
+    // npx playwright test "2_Website_DemoQA_CheckBox.spec.ts.spec.ts" 
     
 
     test('TC01_Checkbox', async ({ page }) => {
-        // npx playwright test "7_Website_DemoQA_CheckBox.spec.ts.spec.ts" -g "/TC01_Checkbox" 
+        // npx playwright test "2_Website_DemoQA_CheckBox.spec.ts.spec.ts" -g "/TC01_Checkbox" 
         // จุดประสงค์: ตรวจสอบว่า checkbox ถูกเลือกแล้วชื่อไฟล์/โฟลเดอร์แสดงในข้อความด้านล่าง คลิกเช็ค Desktop > Notes ตรวจสอบว่า text ด้านล่างมีคำว่า "You have selected :notes"
         await page.goto("https://demoqa.com/checkbox", { waitUntil: 'domcontentloaded' });
         // ไปยังเว็บทดสอบการ checkbox แบบไม่รอโหลดนานเกินไป
@@ -21,7 +21,7 @@ test.describe('Website QADEMO Checkbox', () => {
     });
    
     test('TC02_Un_Checkbox', async ({ page }) => {
-        // npx playwright test "7_Website_DemoQA_CheckBox.spec.ts.spec.ts" -g "TC02_Un_Checkbox"
+        // npx playwright test "2_Website_DemoQA_CheckBox.spec.ts.spec.ts" -g "TC02_Un_Checkbox"
         // จุดประสงค์: ตรวจสอบว่าเมื่อ uncheck แล้วชื่อหายจาก teb result
 
         await page.goto("https://demoqa.com/checkbox", { waitUntil: 'domcontentloaded' });
@@ -42,7 +42,7 @@ test.describe('Website QADEMO Checkbox', () => {
     });
 
     test('TC03_Multi-select', async ({ page }) => {
-        // npx playwright test "7_Website_DemoQA_CheckBox.spec.ts.spec.ts" -g "TC03_Multi-select"
+        // npx playwright test "2_Website_DemoQA_CheckBox.spec.ts.spec.ts" -g "TC03_Multi-select"
         // จุดประสงค์: ทดสอบว่าเลือกไฟล์ข้ามโฟลเดอร์ได้
 
         await page.goto("https://demoqa.com/checkbox", { waitUntil: 'domcontentloaded' });
@@ -74,7 +74,7 @@ test.describe('Website QADEMO Checkbox', () => {
     });
 
     test('TC04_expand/collapse', async ({ page }) => {
-        // npx playwright test "7_Website_DemoQA_CheckBox.spec.ts.spec.ts" -g "TC04_expand/collapse"
+        // npx playwright test "2_Website_DemoQA_CheckBox.spec.ts.spec.ts" -g "TC04_expand/collapse"
         // จุดประสงค์: ทดสอบว่า expand/collapse ทำงานถูกต้อง
 
         await page.goto("https://demoqa.com/checkbox", { waitUntil: 'domcontentloaded' });
@@ -100,7 +100,7 @@ test.describe('Website QADEMO Checkbox', () => {
     });
 
     test('TC05_Select_All', async ({ page }) => {
-        // npx playwright test "7_Website_DemoQA_CheckBox.spec.ts.spec.ts" -g "TC05_Select_All"
+        // npx playwright test "2_Website_DemoQA_CheckBox.spec.ts.spec.ts" -g "TC05_Select_All"
         // จุดประสงค์: ตรวจสอบ Select All ถ้าหน้ามีปุ่ม + / - ด้านบน
 
         await page.goto("https://demoqa.com/checkbox", { waitUntil: 'domcontentloaded' });
